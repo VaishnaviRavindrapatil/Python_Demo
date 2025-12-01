@@ -96,3 +96,42 @@ class TestIsPalindrome(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+# ---- Auto-generated tests ----
+import unittest
+from Strings import is_anagram
+
+class TestIsAnagram(unittest.TestCase):
+    def test_valid_anagrams(self):
+        self.assertTrue(is_anagram("listen", "silent"))
+        self.assertTrue(is_anagram("evil", "vile"))
+        self.assertTrue(is_anagram("restful", "fluster"))
+        self.assertTrue(is_anagram("debit card", "bad credit"))
+        self.assertTrue(is_anagram("a gentleman", "elegant man"))
+    
+    def test_invalid_anagrams(self):
+        self.assertFalse(is_anagram("hello", "world"))
+        self.assertFalse(is_anagram("python", "java"))
+        self.assertFalse(is_anagram("test", "tests"))
+        self.assertFalse(is_anagram("anagram", "nagaramm"))
+        self.assertFalse(is_anagram("abcd", "dcbae"))
+    
+    def test_empty_strings(self):
+        self.assertTrue(is_anagram("", ""))
+        self.assertFalse(is_anagram("", "nonempty"))
+        self.assertFalse(is_anagram("nonempty", ""))
+    
+    def test_case_insensitivity(self):
+        self.assertTrue(is_anagram("Listen", "Silent"))
+        self.assertTrue(is_anagram("Evil", "VILE"))
+        self.assertFalse(is_anagram("Hello", "WORLD"))
+    
+    def test_special_characters(self):
+        self.assertTrue(is_anagram("a+b=c", "c+b=a"))
+        self.assertFalse(is_anagram("a+b=c", "a+b=d"))
+        self.assertTrue(is_anagram("123", "321"))
+        self.assertFalse(is_anagram("123", "1234"))
+
+if __name__ == "__main__":
+    unittest.main()
